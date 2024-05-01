@@ -1,0 +1,49 @@
+[
+    {
+        "id": 1,
+        "nome": "Mc Donald's",
+        "indirizzo": "Via Luigi Einaudi 280",
+        "image": "/public/ristoranti/mc-donalds-logo.png",
+        "città": "Civitanova Marche",
+        "cap": "62012",
+        "nazione": "ITALY",
+        "orario_apertura": "07:00",
+        "orario_chiusura": "04:00",
+        "ragione_sociale": "Mc Donald's Italia",
+        "email": "mcdonalditalia@mcdonald.it",
+        "piva": "ITXXXXXXX",
+        "telefono": "+3900000000",
+        "categoria": "fast_food"
+    },
+    {
+        "id": 2,
+        "nome": "Pizza Hut",
+        "indirizzo": "Via Roma 123",
+        "città": "Milano",
+        "cap": "20121",
+        "nazione": "ITALY",
+        "orario_apertura": "11:00",
+        "orario_chiusura": "23:00",
+        "ragione_sociale": "Pizza Hut Italia",
+        "email": "info@pizzahut.it",
+        "piva": "ITYYYYYYY",
+        "telefono": "+3911111111",
+        "categoria": "pizzeria"
+    },
+    {
+        "id": 10,
+        "nome": "Burger King",
+        "indirizzo": "Corso Buenos Aires 123",
+        "image": "/public/ristoranti/burger-king-logo.png",
+        "città": "Roma",
+        "cap": "01185",
+        "nazione": "ITALY",
+        "orario_apertura": "08:00",
+        "orario_chiusura": "02:00",
+        "ragione_sociale": "Burger King Italia",
+        "email": "info@burgerking.it",
+        "piva": "ITZZZZZZZ",
+        "telefono": "+3922222222",
+        "categoria": "fast_food"
+    }
+]

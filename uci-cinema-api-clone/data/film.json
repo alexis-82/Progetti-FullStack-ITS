@@ -1,0 +1,39 @@
+[
+    {
+        "titolo": "Nightmare on Elm Street",
+        "regista": "Wes Craven",
+        "anno": 1984,
+        "durata": 91,
+        "categoria": "Horror",
+        "attori": [
+            "Robert Englund",
+            "Heather Langenkamp",
+            "Johnny Depp"
+        ]
+    },
+    {
+        "titolo": "La La Land",
+        "regista": "Damien Chazelle",
+        "anno": 2016,
+        "durata": 128,
+        "categoria": "Commedia musicale",
+        "attori": [
+            "Ryan Gosling",
+            "Emma Stone",
+            "John Legend"
+        ]
+    },
+    {
+        "titolo": "Inception",
+        "regista": "Christopher Nolan",
+        "anno": 2010,
+        "durata": 148,
+        "categoria": "Thriller",
+        "attori": [
+            "Leonardo DiCaprio",
+            "Joseph Gordon-Levitt",
+            "Ellen Page"
+        ],
+        "image" : "/public/inception.jpeg"
+    }
+]

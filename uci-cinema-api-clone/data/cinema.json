@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "nome": "Cinema Paradiso",
+        "indirizzo": "Via Roma 1, Città del Cinema",
+        "orario_apertura": "09:00",
+        "orario_chiusura": "23:00",
+        "numero_sale": 5,
+        "tariffe": 7
+    },
+    {
+        "id": 2,
+        "nome": "CineCity",
+        "indirizzo": "Via Verdi 5, Cinetown",
+        "orario_apertura": "10:00",
+        "orario_chiusura": "22:30",
+        "numero_sale": 6,
+        "tariffe": 7
+    },
+    {
+        "id": 3,
+        "nome": "Cinema Max",
+        "indirizzo": "Via Garibaldi 10, Filmville",
+        "orario_apertura": "11:00",
+        "orario_chiusura": "00:00",
+        "numero_sale": 8,
+        "tariffe": 10
+    }
+]

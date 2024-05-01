@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "id_restaurant": 2,
+        "cod_ordine": "2024-2-24",
+        "totale": 20.20,
+        "valuta": "EUR",
+        "data_ordine": "2024-04-18 17:35:20",
+        "sconto": 0,
+    },
+
+    {
+        "id": 2,
+        "id_restaurant": 3,
+        "cod_ordine": "2024-2-24",
+        "totale": 20.20,
+        "valuta": "EUR",
+        "data_ordine": "2024-04-18 17:35:20",
+        "sconto": 0,
+    },
+
+    {
+        "id": 3,
+        "id_restaurant": 1,
+        "cod_ordine": "2024-2-24",
+        "totale": 20.20,
+        "valuta": "EUR",
+        "data_ordine": "2024-04-18 17:35:20",
+        "sconto": 0,
+    }
+]
