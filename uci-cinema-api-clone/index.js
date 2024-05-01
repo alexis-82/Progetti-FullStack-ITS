@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+const middlewareApp = require("./middlewares")
 const { getCinema } = require('./model/dao')
 const { getMoviesByCategory } = require('./model/dao')
 
@@ -10,6 +11,7 @@ const domain = process.env.domain // Dominio d'ambiente
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(middlewareApp)
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
