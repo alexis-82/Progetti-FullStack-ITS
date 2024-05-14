@@ -1,0 +1,63 @@
+/* RESET PAGE */
+
+/* *{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.flex{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.clr{ clear: both ;} utilizzarlo per pulire quando si usa la regola float o flex prima e dopo ---> <div class='clr'></div> */
+
+/* ---------------------- */
+
+#title {
+    text-align: center;
+}
+
+/* Altezza di html e body */
+html, body {
+    height: 100vh;
+    margin: 0;
+}
+
+/* Centro pagina di classRoom */
+#classRoom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Spazio sui 4 lati in spaceCol */
+.spaceCol {
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+}
+
+/* Bordi su spaceCol */
+.spaceRow1 .spaceCol {
+    border: 1px solid black;
+}
+
+.spaceRow2 .spaceCol {
+    border: 1px solid black;
+}
+
+.spaceRow3 .spaceCol {
+    border: 1px solid black;
+}
+
+.spaceRow4 .spaceCol {
+    border: 1px solid black;
+}
+
+.spaceRow5 .spaceCol {
+    border: 1px solid black;
+}
