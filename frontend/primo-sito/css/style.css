@@ -28,9 +28,9 @@ html, body {
 
 /* Centro pagina di classRoom */
 #classRoom{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* abilita il modello di layout flessibile (Flexbox)  */
+    justify-content: center; /*  allinea gli elementi figlio lungo l'asse principale */
+    align-items: center; /* allinea gli elementi figlio lungo l'asse trasversale */
 }
 
 /* Spazio sui 4 lati in spaceCol */
