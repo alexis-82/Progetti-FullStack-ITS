@@ -20,7 +20,7 @@ justify-content: center;
     text-align: center;
 }
 
-/* Altezza di html e body */
+/* Altezza schermo di html e body */
 html, body {
     height: 100vh;
     margin: 0;
