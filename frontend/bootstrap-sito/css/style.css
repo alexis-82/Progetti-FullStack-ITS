@@ -1,0 +1,17 @@
+#title {
+    text-align: center;
+}
+
+.container {
+    margin-top: 50px;
+}
+.col-md-2 {
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.col-md-2.col-fede {
+    border: 1px solid black;
+    position: relative;
+    left: 36.4%;
+}
