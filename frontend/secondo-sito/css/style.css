@@ -1,0 +1,36 @@
+.navbar.navbar-expand-lg.bg-body-tertiary {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-column {
+    margin-top: 50px;
+    width: 20%;
+    height: 100vh;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.center-column {
+    margin-top: 50px;
+    width: 50%;
+    height: 100vh;
+    background-color: #e6e6e6;
+    padding: 20px;
+}
+
+.right-column {
+    margin-top: 50px;
+    width: 20%;
+    height: 100vh;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
