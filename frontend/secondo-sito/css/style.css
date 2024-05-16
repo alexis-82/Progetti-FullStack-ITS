@@ -13,7 +13,7 @@
 }
 
 .left-column {
-    margin-top: 50px;
+    margin-top: 70px;
     width: 20%;
     height: 100vh;
     background-color: #f1f1f1;
@@ -21,7 +21,7 @@
 }
 
 .center-column {
-    margin-top: 50px;
+    margin-top: 70px;
     width: 50%;
     height: 100vh;
     background-color: #e6e6e6;
@@ -29,7 +29,7 @@
 }
 
 .right-column {
-    margin-top: 50px;
+    margin-top: 70px;
     width: 20%;
     height: 100vh;
     background-color: #f1f1f1;
