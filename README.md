@@ -40,7 +40,7 @@ npm --version
 In questo modo, hai effettivamente spostato i file binari di Node.js nella directory /opt/nodejs e hai configurato il tuo sistema in modo che li trovi nel PATH di esecuzione.
 
 
-## ZSH
+### ZSH
 
 1. **Apri il file .zshrc** nel tuo home directory utilizzando un editor di testo:
 
