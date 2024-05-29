@@ -19,11 +19,11 @@ Puoi creare un nuovo progetto React con Vite utilizzando il comando `npm init vi
 Esempio con npm:
 
 ```bash
-npm init vite@latest my-react-app --template react
+npm init vite@latest my-react-app -- --template react
 ```
 oppure con il comando seguente non crea una nuova cartella ma rimane quella clonata
 ```bash
-npm init vite@latest . --template react
+npm init vite@latest . -- --template react
 ```
 
 Esempio con yarn:
