@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeMaster</title>
+    <style>
+        body { font-family: Arial, Helvetica, sans-serif; line-height: 1.6; padding: 20px; }
+        h1 { color: #333 }
+        #recipeForm { margin-bottom: 20px;}
+        #recipeList { list-style-type: none; padding: 0;}
+        #recipeList li { background: #f4f4f4; margin-bottom: 10px; padding: 10px;}
+    </style>
+</head>
+<body>
+    <h1>RecipeMaster</h1>
+
+    <form id="recipeForm">
+        <input type="text" id="recipeName" placeholder="Nome della ricetta" required>
+        <input type="text" id="recipeIngredients" placeholder="Ingredienti (separati da virgola)" required>
+        <textarea id="recipeInstructions" placeholder="Instruzioni" required></textarea>
+        <button type="submit">Aggiungi Ricetta</button>
+    </form>
+    
+    <ul id="recipeList"></ul>
+
+    <script src="/client.js"></script>
+</body>
+</html>
