@@ -72,7 +72,7 @@ my-react-app/
 Per avviare il server di sviluppo con hot module replacement (HMR), usa il seguente comando:
 
 ```bash
-npm run dev
+npm run dev -- --open
 # oppure
 yarn dev
 ```

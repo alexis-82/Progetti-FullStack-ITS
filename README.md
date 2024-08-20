@@ -79,3 +79,52 @@ source ~/.zshrc
 ```
 
 In questo modo, le modifiche al PATH verranno applicate senza dover uscire e rientrare nella shell.
+
+---
+
+## Installazione e aggiornamento di NVM (Node Version Manager)
+
+[Link Ufficiale](https://github.com/nvm-sh/nvm?tab=readme-ov-file "NVM")
+
+1. **Installazione di NVM**
+
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+oppure
+```
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+2. **Aggiorniamo il profilo bash o zsh**
+
+```
+source ~/.bash_profile
+```
+oppure
+```
+source ~/.zshrc
+```
+
+3. **Verifichiamo l'installazione**
+
+```
+nvm -v
+```
+
+4. **Cerchiamo una versione di Node.js**
+
+```
+nvm ls-remote
+```
+
+4. **Installiamo una versione di Node.js**
+
+```
+nvm install v20.16.0
+```
+
+### Controllo della versione installata in locale
+```
+nvm list
+```
