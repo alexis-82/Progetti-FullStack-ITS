@@ -72,6 +72,11 @@ npm --version
 
 Se vedi le versioni corrispondenti, significa che Node.js è stato installato correttamente e reso disponibile nel PATH di sistema.
 
+5. **Aggiornare NPM**
+```
+npm install -g npm@latest
+```
+
 Ricorda che modificando il file .zshrc, i cambiamenti verranno applicati ogni volta che apri una nuova sessione di Zsh. Se vuoi applicare le modifiche immediatamente nell'attuale sessione, puoi eseguire:
 
 ```
