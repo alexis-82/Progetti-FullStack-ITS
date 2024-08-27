@@ -41,102 +41,15 @@ PORT=3001
 
 ### 2. **File del Server (`server.js`)**
 
-```javascript
-// server.js
-require("dotenv").config();
-const express = require("express");
-const mysql = require("mysql2/promise");
-const cors = require("cors");
+```bash
+cd gestione_utenti/server
+```
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+Installazione di Node.js e dipendenze:
 
-const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    port: process.env.DB_PORT || 3306,
-});
-
-// Verifica la connessione al database
-pool.getConnection()
-    .then((connection) => {
-        console.log("Successfully connected to the database.");
-        connection.release();
-    })
-    .catch((err) => {
-        console.error("Error connecting to the database:", err);
-    });
-
-// GET tutti gli utenti
-app.get("/users", async (req, res) => {
-    try {
-        const [rows] = await pool.query("SELECT * FROM users");
-        res.json(rows);
-    } catch (error) {
-        console.error("Error fetching users:", error);
-        res.status(500).json({ message: error.message });
-    }
-});
-
-// POST nuovo utente
-app.post("/users", async (req, res) => {
-    const { name, email } = req.body;
-
-    if (!name || !email) {
-        return res.status(400).json({ message: "Name and email are required." });
-    }
-
-    try {
-        const [result] = await pool.query(
-            "INSERT INTO users (name, email) VALUES (?, ?)",
-            [name, email]
-        );
-        res.status(201).json({ id: result.insertId, name, email });
-    } catch (error) {
-        console.error("Error creating user:", error);
-        res.status(500).json({ message: error.message });
-    }
-});
-
-// PUT aggiorna utente
-app.put("/users/:id", async (req, res) => {
-    const { id } = req.params;
-    const { name, email } = req.body;
-
-    if (!name || !email) {
-        return res.status(400).json({ message: "Name and email are required." });
-    }
-
-    try {
-        await pool.query("UPDATE users SET name = ?, email = ? WHERE id = ?", [
-            name,
-            email,
-            id,
-        ]);
-        res.json({ id, name, email });
-    } catch (error) {
-        console.error("Error updating user:", error);
-        res.status(500).json({ message: error.message });
-    }
-});
-
-// DELETE elimina utente
-app.delete("/users/:id", async (req, res) => {
-    const { id } = req.params;
-    try {
-        await pool.query("DELETE FROM users WHERE id = ?", [id]);
-        res.json({ message: "User deleted successfully" });
-    } catch (error) {
-        console.error("Error deleting user:", error);
-        res.status(500).json({ message: error.message });
-    }
-});
-
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+```bash
+npm init -y
+npm install express mysql2 cors dotenv
 ```
 
 ### 3. **Setup del Database**
@@ -153,139 +66,20 @@ CREATE TABLE users (
 
 ## Configurazione del Frontend
 
-### 1. **File di Configurazione di React (`UserManagement.js`)**
+### 1. **Cartella del Client**
 
-```javascript
-// src/components/UserManagement.js
-import React, { useState, useEffect } from "react";
-
-function UserManagement() {
-    const [users, setUsers] = useState([]);
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [editingId, setEditingId] = useState(null);
-
-    useEffect(() => {
-        fetchUsers();
-    }, []);
-
-    const fetchUsers = async () => {
-        try {
-            const response = await fetch("http://localhost:3001/users");
-            if (!response.ok) throw new Error("Network response was not ok");
-            const data = await response.json();
-            setUsers(data);
-        } catch (error) {
-            console.error("Error fetching users:", error);
-        }
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (editingId) {
-            await updateUser(editingId, name, email);
-        } else {
-            await createUser(name, email);
-        }
-        setName('');
-        setEmail('');
-        setEditingId(null);
-        fetchUsers();
-    };
-
-    const createUser = async (name, email) => {
-        try {
-            const response = await fetch('http://localhost:3001/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, email }),
-            });
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
-            const data = await response.json();
-            console.log('User created:', data);
-        } catch (error) {
-            console.error('Error creating user:', error);
-        }
-    };
-
-    const updateUser = async (id, name, email) => {
-        try {
-            const response = await fetch(`http://localhost:3001/users/${id}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email }),
-            });
-            if (!response.ok) throw new Error("Network response was not ok");
-        } catch (error) {
-            console.error("Error updating user:", error);
-        }
-    };
-
-    const deleteUser = async (id) => {
-        try {
-            const response = await fetch(`http://localhost:3001/users/${id}`, {
-                method: "DELETE",
-            });
-            if (!response.ok) throw new Error("Network response was not ok");
-            fetchUsers();
-        } catch (error) {
-            console.error("Error deleting user:", error);
-        }
-    };
-
-    const editUser = (user) => {
-        setName(user.name);
-        setEmail(user.email);
-        setEditingId(user.id);
-    };
-
-    return (
-        <div>
-            <h1>User Management</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <button type="submit">
-                    {editingId ? "Update" : "Add"} User
-                </button>
-            </form>
-            <ul>
-                {users.map((user) => (
-                    <li key={user.id}>
-                        {user.name} - {user.email}
-                        <button onClick={() => editUser(user)}>Edit</button>
-                        <button onClick={() => deleteUser(user.id)}>
-                            Delete
-                        </button>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
-}
-
-export default UserManagement;
+```bash
+cd ..
+npx create-react-app client
 ```
 
-### 2. **Installazione delle Dipendenze**
+### 2. **File di Configurazione di React (`UserManagement.js`)**
+
+```bash
+cd gestione_utenti/client/src/components/
+```
+
+### 3. **Installazione delle Dipendenze**
 
 Assicurati di avere le seguenti dipendenze nel tuo progetto React:
 
