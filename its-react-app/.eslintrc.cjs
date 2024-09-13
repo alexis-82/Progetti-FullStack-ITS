@@ -13,6 +13,10 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'react/jsx-no-target-blank': 'off',
+    // Disabilita la regola per l'import di React
+    'react/react-in-jsx-scope': 'off',
+    // Se necessario, puoi anche aggiungere questa regola
+    'no-unused-vars': ['error', { varsIgnorePattern: 'React' }],
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
