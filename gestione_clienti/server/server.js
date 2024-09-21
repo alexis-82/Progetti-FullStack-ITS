@@ -14,7 +14,7 @@ const pool = mysql.createPool({
     host: '192.168.1.200',
     user: 'root',
     password: 'admin',
-    database: 'gestione_utenti',
+    database: 'gestione_clienti',
     port: '3306'
 });
 
