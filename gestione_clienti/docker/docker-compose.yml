@@ -1,0 +1,25 @@
+services:
+  db:
+    image: mysql:latest
+    cap_add:
+      - SYS_NICE
+    restart: always
+    env_file:
+      - ./mysql.env
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./database/data:/var/lib/mysql
+    networks:
+      my_macvlan_network:
+        ipv4_address: 192.168.1.200  # Cambia l'indirizzo IP in base alla tua rete
+
+volumes:
+  db:
+    driver: local
+
+networks:
+  my_macvlan_network:
+    external: true
+    name: my_macvlan_network
