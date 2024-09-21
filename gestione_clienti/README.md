@@ -9,7 +9,8 @@ Questo progetto consiste in una semplice applicazione fullstack per la gestione 
 ```
 gestione_clienti/
 ├── client/
-└── server/
+├── server/
+└── docker/
 ```
 
 ### Backend
@@ -53,11 +54,11 @@ npm install
 
 ### 3. **Setup del Database**
 
-Assicurati di avere una tabella `users` nel database `gestione_clienti`. Ecco un esempio di schema per la tabella:
+Assicurati che il file init.sql abbia creato la tabella `users` nel database `gestione_clienti`.
 
 ```sql
 USE gestione_clienti;
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL
@@ -105,4 +106,4 @@ curl -X POST http://localhost:3001/users -H "Content-Type: application/json" -d 
 
 ```
 
-2. **Interagisci con il frontend:** Crea, aggiorna e elimina utenti attraverso il sito web del frontend.
+2. **Interagisci con il frontend:** Crea, aggiorna e elimina clienti attraverso il sito web del frontend.
