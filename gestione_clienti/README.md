@@ -7,7 +7,7 @@ Questo progetto consiste in una semplice applicazione fullstack per la gestione 
 ## Struttura del Progetto
 
 ```
-gestione_clienti/
+gestione_utenti/
 ├── client/
 ├── server/
 └── docker/
