@@ -11,6 +11,7 @@ function UserManagement() {
         fetchUsers();
     }, []);
 
+    // Funzione asincrona per recuperare gli utenti dal server
     const fetchUsers = async () => {
         try {
             const response = await fetch("http://localhost:3001/users");
@@ -22,6 +23,7 @@ function UserManagement() {
         }
     };
 
+    // Gestore del submit del form per creare o aggiornare un utente
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (editingId) {
@@ -35,6 +37,7 @@ function UserManagement() {
         fetchUsers();
     };
 
+    // Funzione per creare un nuovo utente
     const createUser = async (name, email) => {
         try {
             const response = await fetch('http://localhost:3001/users', {
@@ -56,6 +59,7 @@ function UserManagement() {
         }
     };
     
+    // Funzione per aggiornare un utente esistente
     const updateUser = async (id, name, email) => {
         try {
             const response = await fetch(`http://localhost:3001/users/${id}`, {
@@ -69,6 +73,7 @@ function UserManagement() {
         }
     };
 
+    // Funzione per eliminare un utente
     const deleteUser = async (id) => {
         try {
             const response = await fetch(`http://localhost:3001/users/${id}`, {
@@ -81,12 +86,14 @@ function UserManagement() {
         }
     };
 
+    // Funzione per impostare i campi del form per la modifica di un utente
     const editUser = (user) => {
         setName(user.name);
         setEmail(user.email);
         setEditingId(user.id);
     };
 
+    // Rendering del componente
     return (
         <div>
             <h1>User Management</h1>
