@@ -35,7 +35,7 @@ Crea un file `.env` nella radice del progetto con le seguenti variabili di ambie
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=password
-DB_NAME=gestione_clienti
+DB_NAME=gestione_utenti
 DB_PORT=3306
 PORT=3001
 ```
@@ -43,7 +43,7 @@ PORT=3001
 ### 2. **File del Server (`server.js`)**
 
 ```bash
-cd gestione_clienti/server
+cd gestione_utenti/server
 ```
 
 Installazione delle dipendenze:
@@ -54,10 +54,10 @@ npm install
 
 ### 3. **Setup del Database**
 
-Assicurati che il file init.sql abbia creato la tabella `users` nel database `gestione_clienti`.
+Assicurati che il file init.sql abbia creato la tabella `users` nel database `gestione_utenti`.
 
 ```sql
-USE gestione_clienti;
+USE gestione_utenti;
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -106,4 +106,4 @@ curl -X POST http://localhost:3001/users -H "Content-Type: application/json" -d 
 
 ```
 
-2. **Interagisci con il frontend:** Crea, aggiorna e elimina clienti attraverso il sito web del frontend.
+2. **Interagisci con il frontend:** Crea, aggiorna e elimina utenti attraverso il sito web del frontend.
