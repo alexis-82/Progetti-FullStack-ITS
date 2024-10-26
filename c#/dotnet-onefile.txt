@@ -1,0 +1,17 @@
+Nel file XML:
+<PropertyGroup>
+    <PublishSingleFile>true</PublishSingleFile>
+</PropertyGroup>
+
+Per la compilazione:
+dotnet publish -r win-x64
+
+COMPRESSIONE:
+Comprimere gli assembly nelle applicazioni a file singolo
+Le applicazioni a file singolo possono essere create con la compressione abilitata negli assembly incorporati.
+Impostare la proprietà "EnableCompressionInSingleFile" su "true". Il file singolo prodotto avrà tutti gli assembly incorporati compressi,
+cosa che può ridurre significativamente le dimensioni del file eseguibile.
+
+La compressione include un costo delle prestazioni. All'avvio dell'applicazione, gli assembly devono essere decompressi in memoria,
+operazione che richiede tempo. È consigliabile misurare sia la modifica delle dimensioni sia il costo di avvio per abilitare la compressione prima di usarla.
+L'impatto può variare in modo significativo tra applicazioni diverse.
