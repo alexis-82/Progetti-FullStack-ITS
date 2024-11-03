@@ -1,0 +1,15 @@
+In questo progetto fullstack di e-commerce, il nostro obiettivo è creare un'applicazione web che permetta agli utenti di navigare, cercare e acquistare prodotti.
+
+Lo schema dell'architettura è il file schema_progetto.png.
+
+Per il frontend, utilizziamo React.
+
+Segue un API Gateway Nginx con Reverse Proxy verso i vari microservizi.
+
+Poi la parte Basket/Order è in Node.js.
+
+Catalog e Inventory sono in C#.
+
+Per il database, utilizziamo Mysql.
+
+Quando applico il tuo codice voglio che mi trascrivi anche i commenti.
