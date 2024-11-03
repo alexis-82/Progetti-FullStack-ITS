@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import FeaturedProducts from './FeaturedProducts'
 import './Homepage.css'
 
 function Homepage() {
@@ -20,24 +19,6 @@ function Homepage() {
           </button>
         </div>
       </section>
-
-      {/* Categorie in evidenza */}
-      <section className="categories">
-        <h2>Le nostre categorie</h2>
-        <div className="categories-grid">
-          {['Elettronica', 'Abbigliamento', 'Casa', 'Sport'].map(category => (
-            <div key={category} className="category-card">
-              <h3>{category}</h3>
-              <button onClick={() => navigate('/catalogo')}>
-                Scopri di più
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Prodotti in evidenza */}
-      <FeaturedProducts />
 
       {/* Sezione vantaggi */}
       <section className="benefits">
