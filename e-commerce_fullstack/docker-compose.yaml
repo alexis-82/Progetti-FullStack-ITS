@@ -1,0 +1,143 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+    image: react-frontend
+    networks:
+      - app-network
+    volumes:
+      - frontend_build:/usr/share/nginx/html
+    env_file:
+      - .env
+
+  nginx:
+    build:
+      context: ./gateway
+    image: nginx-proxy
+    depends_on:
+      - frontend
+      - basket-order
+      - catalog
+      - inventory
+    volumes:
+      - ./gateway/config/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./gateway/config/nginx_logs:/var/log/nginx
+      - frontend_build:/usr/share/nginx/html
+    ports:
+      - "${NGINX_PORT}:80"
+    networks:
+      - app-network
+
+  basket-order:
+    depends_on:
+      - mysql
+    build:
+      context: ./basket-order
+    image: basket-order-service
+    ports:
+      - "${BASKET_ORDER_PORT}:${BASKET_ORDER_PORT}"
+    volumes:
+      - basket_order_logs:/app/logs
+    networks:
+      - app-network
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - BASKET_ORDER_DB=${BASKET_ORDER_DB}
+      - BASKET_ORDER_PORT=${BASKET_ORDER_PORT}
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  catalog:
+    build:
+      context: ./catalog
+    image: catalog-service
+    ports:
+      - "5000:5000"
+    volumes:
+      - catalog_logs:/app/logs
+    networks:
+      - app-network
+    environment:
+      - DATABASE_HOST=${DB_HOST}
+      - DATABASE_NAME=${CATALOG_DB}
+      - DATABASE_USER=${DB_USER}
+      - DATABASE_PASSWORD=${DB_PASSWORD}
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  inventory:
+    build:
+      context: ./inventory
+    image: inventory-service
+    ports:
+      - "5001:5001"
+    volumes:
+      - inventory_logs:/app/logs
+    networks:
+      - app-network
+    environment:
+      - DATABASE_HOST=${DB_HOST}
+      - DATABASE_NAME=${INVENTORY_DB}
+      - DATABASE_USER=${DB_USER}
+      - DATABASE_PASSWORD=${DB_PASSWORD}
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  mysql:
+    build:
+      context: ./mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - mysql_logs:/var/log/mysql
+      - mysql_config:/etc/mysql/conf.d
+    networks:
+      - app-network
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  nginx_logs:
+  basket_order_logs:
+  catalog_logs:
+  inventory_logs:
+  mysql_data:
+  mysql_logs:
+  mysql_config:
+  frontend_build:

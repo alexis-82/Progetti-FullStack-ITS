@@ -1,0 +1,25 @@
+.
+├── docker-compose.yml
+├── frontend
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── package-lock.json
+│   └── src
+├── gateway
+│   ├── config/
+│   │   └── nginx.conf
+│   └── src
+├── catalog
+│   ├── Dockerfile
+│   ├── Program.cs
+│   └── catalog.csproj
+├── inventory
+│   ├── Dockerfile
+│   ├── Program.cs
+│   └── inventory.csproj
+├── basket-order
+│   ├── Dockerfile
+│   └── src
+├── mysql
+│   ├── Dockerfile
+│   └── init.sql
