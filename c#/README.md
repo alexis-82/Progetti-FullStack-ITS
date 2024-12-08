@@ -1,6 +1,10 @@
-# Comandi .NET CLI più utilizzati per progetti C# su console e WebAPI
+# Installazione di .NET in Linux tramite script.
 
-## Comandi generali
+[Link Ufficiale Microsoft](https://learn.microsoft.com/it-it/dotnet/core/install/linux-scripted-manual#scripted-install)
+
+## Comandi .NET CLI più utilizzati per progetti C# su console e WebAPI
+
+### Comandi generali
 
 1. Creare un nuovo progetto console:
    ```
@@ -72,7 +76,7 @@
     dotnet watch run
     ```
 
-## Comandi per WebAPI
+### Comandi per WebAPI
 
 15. Creare un nuovo progetto WebAPI:
     ```
