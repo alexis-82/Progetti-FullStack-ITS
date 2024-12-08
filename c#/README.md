@@ -1,6 +1,6 @@
 # Installazione di .NET in Linux tramite script.
 
-[Link Ufficiale Microsoft](https://learn.microsoft.com/it-it/dotnet/core/install/linux-scripted-manual#scripted-install&target=_blank) 
+<a href="[https://www.example.com](https://learn.microsoft.com/it-it/dotnet/core/install/linux-scripted-manual#scripted-install)" target="_blank">Link Ufficiale Microsoft</a>
 
 ## Comandi .NET CLI più utilizzati per progetti C# su console e WebAPI
 
