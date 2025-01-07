@@ -121,8 +121,13 @@ nvm -v
 
 4. **Cerchiamo una versione di Node.js**
 
+su Linux:
 ```
 nvm ls-remote
+```
+su Windows:
+```
+nvm list available
 ```
 
 4. **Installiamo una versione di Node.js**
@@ -130,6 +135,13 @@ nvm ls-remote
 ```
 nvm install v20.16.0
 ```
+(su Windows senza v di version)
+
+5. **Usiamo la versione installata**
+```
+nvm use v20.16.0
+```
+(su Windows senza v di version)
 
 ### Controllo della versione installata in locale
 ```
