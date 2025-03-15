@@ -17,7 +17,7 @@ sudo mkdir /opt/nodejs
 2. **Estrarre i file binari** nella directory appena creata. Assumendo che il file scaricato sia node-vxx.x.x-linux-x64.tar.xz:
 
 ```
-sudo tar -xvf node-vxx.x.x-linux-x64.tar.xz -C /opt/nodejs --trip-components=1
+sudo tar -xvf node-vxx.x.x-linux-x64.tar.xz -C /opt/nodejs --strip-components=1
 ```
 
 3. **Impostare il PATH dell'ambiente** in modo che il sistema trovi gli eseguibili di Node.js. Apri il file /etc/profile e aggiungi questa riga alla fine:
