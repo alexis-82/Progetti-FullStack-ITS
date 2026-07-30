@@ -91,7 +91,7 @@ In questo modo, le modifiche al PATH verranno applicate senza dover uscire e rie
 
 ## Installazione e aggiornamento di NVM (Node Version Manager)
 
-[Link Ufficiale](https://github.com/nvm-sh/nvm?tab=readme-ov-file "NVM")
+[Link Ufficiale](https://www.nvmnode.com/it/)
 
 1. **Installazione di NVM**
 
