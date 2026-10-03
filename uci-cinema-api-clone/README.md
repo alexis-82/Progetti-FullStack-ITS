@@ -7,7 +7,7 @@ Abbiamo clonato a grosse linee le API del portale UCI Cinema
 
 Eseguiamo il seguente comando per installare i pacchetti richiesti e presenti nel file package.json
 ```
-npm install (-g = global)
+npm ci (-g = global)
 ```
 In questo progetto installa i pacchetti:
 - Express.js
