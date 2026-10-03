@@ -38,9 +38,9 @@ Dopo aver creato il progetto, spostati nella directory del progetto e installa l
 
 ```bash
 cd my-react-app
-npm install
+npm ci
 # oppure
-yarn install
+yarn install --immutable
 ```
 
 ### 3. Struttura del progetto
