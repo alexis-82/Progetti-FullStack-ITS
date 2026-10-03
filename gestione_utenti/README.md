@@ -49,7 +49,7 @@ cd gestione_utenti/server
 Installazione delle dipendenze:
 
 ```bash
-npm install
+npm ci
 ```
 
 ### 3. **Setup del Database**
